@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.uzhai.dao.TCompanyDetailMapper" >
+  <resultMap id="BaseResultMap" type="org.uzhai.model.TCompanyDetail" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="credit_code" property="creditCode" jdbcType="VARCHAR" />
+    <result column="legal_representative" property="legalRepresentative" jdbcType="VARCHAR" />
+    <result column="company_found_time" property="companyFoundTime" jdbcType="TIMESTAMP" />
+    <result column="registered_capital" property="registeredCapital" jdbcType="VARCHAR" />
+    <result column="registered_place" property="registeredPlace" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="business_license" property="businessLicense" jdbcType="VARCHAR" />
+    <result column="inserttime" property="inserttime" jdbcType="TIMESTAMP" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="rmk1" property="rmk1" jdbcType="VARCHAR" />
+    <result column="rmk2" property="rmk2" jdbcType="VARCHAR" />
+    <result column="rmk3" property="rmk3" jdbcType="VARCHAR" />
+    <result column="rmk4" property="rmk4" jdbcType="VARCHAR" />
+    <result column="rmk5" property="rmk5" jdbcType="VARCHAR" />
+    <result column="rmk6" property="rmk6" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userid, company_name, credit_code, legal_representative, company_found_time, 
+    registered_capital, registered_place, phone, business_license, inserttime, updatetime, 
+    rmk1, rmk2, rmk3, rmk4, rmk5, rmk6
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_company_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_company_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.uzhai.model.TCompanyDetail" >
+    insert into t_company_detail (id, userid, company_name, 
+      credit_code, legal_representative, company_found_time, 
+      registered_capital, registered_place, phone, 
+      business_license, inserttime, updatetime, 
+      rmk1, rmk2, rmk3, rmk4, 
+      rmk5, rmk6)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+      #{creditCode,jdbcType=VARCHAR}, #{legalRepresentative,jdbcType=VARCHAR}, #{companyFoundTime,jdbcType=TIMESTAMP}, 
+      #{registeredCapital,jdbcType=VARCHAR}, #{registeredPlace,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{businessLicense,jdbcType=VARCHAR}, #{inserttime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{rmk1,jdbcType=VARCHAR}, #{rmk2,jdbcType=VARCHAR}, #{rmk3,jdbcType=VARCHAR}, #{rmk4,jdbcType=VARCHAR}, 
+      #{rmk5,jdbcType=VARCHAR}, #{rmk6,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.uzhai.model.TCompanyDetail" >
+    insert into t_company_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="creditCode != null" >
+        credit_code,
+      </if>
+      <if test="legalRepresentative != null" >
+        legal_representative,
+      </if>
+      <if test="companyFoundTime != null" >
+        company_found_time,
+      </if>
+      <if test="registeredCapital != null" >
+        registered_capital,
+      </if>
+      <if test="registeredPlace != null" >
+        registered_place,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="businessLicense != null" >
+        business_license,
+      </if>
+      <if test="inserttime != null" >
+        inserttime,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
+      <if test="rmk1 != null" >
+        rmk1,
+      </if>
+      <if test="rmk2 != null" >
+        rmk2,
+      </if>
+      <if test="rmk3 != null" >
+        rmk3,
+      </if>
+      <if test="rmk4 != null" >
+        rmk4,
+      </if>
+      <if test="rmk5 != null" >
+        rmk5,
+      </if>
+      <if test="rmk6 != null" >
+        rmk6,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCode != null" >
+        #{creditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="legalRepresentative != null" >
+        #{legalRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="companyFoundTime != null" >
+        #{companyFoundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registeredCapital != null" >
+        #{registeredCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredPlace != null" >
+        #{registeredPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicense != null" >
+        #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="inserttime != null" >
+        #{inserttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rmk1 != null" >
+        #{rmk1,jdbcType=VARCHAR},
+      </if>
+      <if test="rmk2 != null" >
+        #{rmk2,jdbcType=VARCHAR},
+      </if>
+      <if test="rmk3 != null" >
+        #{rmk3,jdbcType=VARCHAR},
+      </if>
+      <if test="rmk4 != null" >
+        #{rmk4,jdbcType=VARCHAR},
+      </if>
+      <if test="rmk5 != null" >
+        #{rmk5,jdbcType=VARCHAR},
+      </if>
+      <if test="rmk6 != null" >
+        #{rmk6,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.uzhai.model.TCompanyDetail" >
+    update t_company_detail
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCode != null" >
+        credit_code = #{creditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="legalRepresentative != null" >
+        legal_representative = #{legalRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="companyFoundTime != null" >
+        company_found_time = #{companyFoundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registeredCapital != null" >
+        registered_capital = #{registeredCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredPlace != null" >
+        registered_place = #{registeredPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicense != null" >
+        business_license = #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="inserttime != null" >
+        inserttime = #{inserttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rmk1 != null" >
+        rmk1 = #{rmk1,jdbcType=VARCHAR},
+      </if>
+      <if test="rmk2 != null" >
+        rmk2 = #{rmk2,jdbcType=VARCHAR},
+      </if>
+      <if test="rmk3 != null" >
+        rmk3 = #{rmk3,jdbcType=VARCHAR},
+      </if>
+      <if test="rmk4 != null" >
+        rmk4 = #{rmk4,jdbcType=VARCHAR},
+      </if>
+      <if test="rmk5 != null" >
+        rmk5 = #{rmk5,jdbcType=VARCHAR},
+      </if>
+      <if test="rmk6 != null" >
+        rmk6 = #{rmk6,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.uzhai.model.TCompanyDetail" >
+    update t_company_detail
+    set userid = #{userid,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      credit_code = #{creditCode,jdbcType=VARCHAR},
+      legal_representative = #{legalRepresentative,jdbcType=VARCHAR},
+      company_found_time = #{companyFoundTime,jdbcType=TIMESTAMP},
+      registered_capital = #{registeredCapital,jdbcType=VARCHAR},
+      registered_place = #{registeredPlace,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      business_license = #{businessLicense,jdbcType=VARCHAR},
+      inserttime = #{inserttime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      rmk1 = #{rmk1,jdbcType=VARCHAR},
+      rmk2 = #{rmk2,jdbcType=VARCHAR},
+      rmk3 = #{rmk3,jdbcType=VARCHAR},
+      rmk4 = #{rmk4,jdbcType=VARCHAR},
+      rmk5 = #{rmk5,jdbcType=VARCHAR},
+      rmk6 = #{rmk6,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
